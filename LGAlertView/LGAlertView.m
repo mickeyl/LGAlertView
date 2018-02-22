@@ -2006,10 +2006,13 @@ static NSMutableArray *kLGAlertViewArray;
             self.innerContainerView.frame = innerContainerViewFrame;
             [self.scrollView addSubview:self.innerContainerView];
 
-            CGRect innerViewFrame = CGRectMake(width/2-CGRectGetWidth(self.innerView.frame)/2,
+            CGFloat innerViewWidth = MIN(width - 2*_innerViewHorizontalMargin, CGRectGetWidth(self.innerView.frame) - 2*_innerViewHorizontalMargin);
+            CGFloat innerViewHeight = CGRectGetHeight(self.innerView.frame);
+
+            CGRect innerViewFrame = CGRectMake(width/2-innerViewWidth/2,
                                                0.0,
-                                               CGRectGetWidth(self.innerView.frame),
-                                               CGRectGetHeight(self.innerView.frame));
+                                               innerViewWidth,
+                                               innerViewHeight);
 
             if ([UIScreen mainScreen].scale == 1.0) {
                 innerViewFrame = CGRectIntegral(innerViewFrame);
@@ -2799,7 +2802,7 @@ static NSMutableArray *kLGAlertViewArray;
             bottomShift += self.buttonsHeight+self.cancelButtonOffsetY;
         }
 
-        scrollViewFrame = CGRectMake(size.width/2-width/2, size.height-bottomShift-heightMax, width, heightMax);
+        scrollViewFrame = CGRectMake(size.width/2-width/2, size.height-bottomShift-heightMax-self.keyboardHeight, width, heightMax);
     }
 
     // -----
@@ -2808,7 +2811,7 @@ static NSMutableArray *kLGAlertViewArray;
         CGRect cancelButtonFrame = CGRectZero;
 
         if (kLGAlertViewIsCancelButtonSeparate(self) && self.cancelButton) {
-            cancelButtonFrame = CGRectMake(size.width/2-width/2, size.height-self.cancelButtonOffsetY-self.buttonsHeight, width, self.buttonsHeight);
+            cancelButtonFrame = CGRectMake(size.width/2-width/2, size.height-self.cancelButtonOffsetY-self.buttonsHeight-self.keyboardHeight, width, self.buttonsHeight);
         }
 
         self.scrollViewCenterShowed = CGPointMake(CGRectGetMinX(scrollViewFrame)+CGRectGetWidth(scrollViewFrame)/2,

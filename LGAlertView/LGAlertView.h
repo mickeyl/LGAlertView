@@ -103,6 +103,7 @@ typedef NS_ENUM(NSUInteger, LGAlertViewWindowLevel) {
 
 /** View that you associate to alert view while initialization */
 @property (strong, nonatomic, readonly, nullable) UIView *innerView;
+@property (assign, nonatomic, readwrite) CGFloat innerViewHorizontalMargin;
 
 // Default is 0
 @property (assign, nonatomic) NSInteger tag;
