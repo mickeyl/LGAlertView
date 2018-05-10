@@ -48,7 +48,7 @@ static NSString *_Nonnull const LGAlertViewDestructiveNotification = @"LGAlertVi
 
 #pragma mark - Types
 
-typedef void (^ _Nullable LGAlertViewCompletionHandler)();
+typedef void (^ _Nullable LGAlertViewCompletionHandler)(void);
 typedef void (^ _Nullable LGAlertViewHandler)(LGAlertView * _Nonnull alertView);
 typedef void (^ _Nullable LGAlertViewActionHandler)(LGAlertView * _Nonnull alertView, NSString * _Nullable title, NSUInteger index);
 typedef void (^ _Nullable LGAlertViewTextFieldsSetupHandler)(UITextField * _Nonnull textField, NSUInteger index);

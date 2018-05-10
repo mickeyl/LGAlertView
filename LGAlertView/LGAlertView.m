@@ -3929,7 +3929,7 @@ static UIFont *_classProgressLabelFont;
 
 #pragma mark - Support
 
-+ (void)animateStandardWithAnimations:(void(^)())animations completion:(void(^)(BOOL finished))completion {
++ (void)animateStandardWithAnimations:(void(^)(void))animations completion:(void(^)(BOOL finished))completion {
     [UIView animateWithDuration:0.5
                           delay:0.0
          usingSpringWithDamping:1.0
