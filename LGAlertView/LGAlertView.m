@@ -768,7 +768,7 @@ static NSMutableArray *kLGAlertViewArray;
                                       cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                                  destructiveButtonTitle:(nullable NSString *)destructiveButtonTitle
                                                delegate:(nullable id<LGAlertViewDelegate>)delegate {
-    return [[self alloc] alertViewWithTextFieldsAndTitle:title
+    return [[self alloc] initWithTextFieldsAndTitle:title
                                                  message:message
                                       numberOfTextFields:numberOfTextFields
                                   textFieldsSetupHandler:textFieldsSetupHandler
