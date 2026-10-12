@@ -1559,11 +1559,12 @@ static NSMutableArray *kLGAlertViewArray;
 
     // -----
 
-    UIWindow *windowApp = [UIApplication sharedApplication].delegate.window;
-    NSAssert(windowApp != nil, @"Application needs to have at least one window");
-
     UIWindow *windowKey = [UIApplication sharedApplication].keyWindow;
     NSAssert(windowKey != nil, @"Application needs to have at least one keyAndVisible window");
+
+    UIWindow *windowApp = kLGAlertViewWindowsArray.firstObject ?: windowKey;
+    self.viewController.applicationWindow = windowApp;
+    self.window.windowScene = windowApp.windowScene;
 
     if (!kLGAlertViewWindowsArray.count) {
         [kLGAlertViewWindowsArray addObject:windowApp];

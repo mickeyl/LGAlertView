@@ -51,15 +51,11 @@
 }
 
 - (BOOL)shouldAutorotate {
-    UIWindow *window = [UIApplication sharedApplication].delegate.window;
-
-    return window.currentViewController.shouldAutorotate;
+    return self.applicationWindow ? self.applicationWindow.currentViewController.shouldAutorotate : YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    UIWindow *window = [UIApplication sharedApplication].delegate.window;
-
-    return window.currentViewController.supportedInterfaceOrientations;
+    return self.applicationWindow ? self.applicationWindow.currentViewController.supportedInterfaceOrientations : UIInterfaceOrientationMaskAll;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {

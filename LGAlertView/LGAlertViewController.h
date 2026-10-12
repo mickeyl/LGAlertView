@@ -33,6 +33,8 @@
 
 @interface LGAlertViewController : UIViewController
 
+@property (weak, nonatomic, nullable) UIWindow *applicationWindow;
+
 - (nonnull instancetype)initWithAlertView:(nonnull LGAlertView *)alertView view:(nonnull UIView *)view;
 
 @end
